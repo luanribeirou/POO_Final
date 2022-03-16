@@ -7,6 +7,11 @@ public class VertexO implements Vertex{
     int Number;
     int Valor;
     String Data;
+    VertexO(int Number,int Valor){
+        this.Valor = Valor;
+        this.Number = Number;
+        edgs = new ArrayList<Edge>();
+    }
     VertexO(int Number,int Valor,String Data){
         this.Valor = Valor;
         this.Number = Number;

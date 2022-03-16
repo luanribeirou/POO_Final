@@ -6,7 +6,17 @@ public class EdgeO<String> implements Edge<String>{
     private Vertex V1;
     private double Valor;
     private String Data;
-
+    
+    EdgeO(Vertex V0 , Vertex V1){
+        this.V0 = V0;
+        this.V1 = V1;
+    }
+    
+    EdgeO(Vertex V0 , Vertex V1,double Valor){
+        this.V0 = V0;
+        this.V1 = V1;
+        this.Valor = Valor;
+    }
     EdgeO(Vertex V0 , Vertex V1,double Valor,String Data){
         this.V0 = V0;
         this.V1 = V1;
