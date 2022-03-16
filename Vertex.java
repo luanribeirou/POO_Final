@@ -1,11 +1,9 @@
 import java.util.Enumeration;
-
-
 //T extends <Comparable<T>
 public interface Vertex<T> extends Comparable<Vertex<T>>{
   int getNumber();    
   // número que identifica o vértice--> n vértices --> [0 .. n-1]
-  Weight getWeight(); 
+  double getWeight(); 
   // obtém o peso do vértice (grafo não ponderado retorna um 'null')
   T getData();
   // retorna qualquer dado associado ao vértice (e.g. rótulo textual) - pode ser 'null' se nenhum.

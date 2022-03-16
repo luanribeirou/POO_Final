@@ -1,10 +1,10 @@
 // < T extends <Comparable <T> >
-public interface Edge<E> extends Comparable<Edge<E>>{
+public interface Edge<E> extends Comparable<Edge<E>>,Weight{
   Vertex getV0(); 
   // retorna o vértice v0: direcionado(v0->v1); não direconado:(v0,v1)|(v1,v0)
   Vertex getV1(); 
   // retorna o vértice v1: direcionado(v0->v1); não direconado:(v0,v1)|(v1,v0)
-  Weight getWeight(); 
+  //Weight getWeight(); 
   // obtém o peso da aresta (grafo não ponderado retorna um 'null')
   E getData();    
   // retorna qualquer dado associado à aresta (e.g. rótulo textual) - pode ser 'null' se nenhum.
