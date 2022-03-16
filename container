@@ -1,0 +1,39 @@
+public abstract class Conteiner extends comparable implements Container{
+  protected int count;
+  public int getCount(){
+    reuturn count;
+  }
+  public boolean isEmpty(){
+    return geatCount() == 0;
+  }
+  public boolean isFull(){
+    return false;
+  }
+  public void purge (){
+    protected Element head;
+    protected Element tail;
+      head = null;
+      tail = null;
+  }
+  public void accept (MatchingVisitor visitor){
+
+        if(visitor != null)
+          MatchingVisitor.visit (visitor);
+         count++;
+    }
+Enumeration getEnumeration(){
+  public Object array [];
+return new Enumeration(){
+  protected int position = 0;
+  public boolean haMoreElements(){
+    return position < getCount();
+  }
+  public Object nextElement(){
+    if(position >= getCount())
+      throw new NosuchElementException();
+    return array[position ++];
+  }
+};
+}
+  
+}
