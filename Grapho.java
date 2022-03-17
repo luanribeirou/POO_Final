@@ -123,8 +123,8 @@ public class Grapho implements Graph<Object, Object>{
     
     
 
+    @Override
     public Enumeration getVertices() {
-        
         return null;
         
     }
