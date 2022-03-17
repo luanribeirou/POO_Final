@@ -1,3 +1,5 @@
+package POO_Final;
+
 import POO_Final.Graph;
 import java.util.Enumeration;
 import java.util.LinkedList;
@@ -63,12 +65,11 @@ public class Grapho implements Graph<Object, Object>{
     }
 
     public void addVertex(int v, Weight w) {
-        vertex[v] = new VertexO(v,Integer.parseInt(w.getWeight()));
+        vertex[v] = new VertexO(v,(int) w.getWeight());
     }
 
-    @Override
     public void addVertex(int v, Weight weight, Object data) {
-        vertex[v] = new VertexO(v,Integer.parseInt(weight.getWeight()),String.valueOf(data));
+        vertex[v] = new VertexO(v,(int) weight.getWeight(),String.valueOf(data));
     }
 
     @Override
@@ -86,13 +87,13 @@ public class Grapho implements Graph<Object, Object>{
     public void addEdge(int v, int w, Weight weight) throws IllegalArgumentException {
        Vertex vertex0 = (Vertex) getVertex(v);
         Vertex vertex1 = (Vertex) getVertex(w);
-        matriz[v][w] = new EdgeO(vertex0,vertex1,Integer.parseInt(weight.getWeight()));
+        matriz[v][w] = new EdgeO(vertex0,vertex1, weight.getWeight());
     }
 
     public void addEdge(int v, int w, Weight weight, Object data) throws IllegalArgumentException {
         Vertex vertex0 = (Vertex) getVertex(v);
         Vertex vertex1 = (Vertex) getVertex(w);
-        matriz[v][w] = new EdgeO(vertex0,vertex1,Integer.parseInt(weight.getWeight()),data.toString());
+        matriz[v][w] = new EdgeO(vertex0,vertex1,weight.getWeight(),data.toString());
     }
 
     @Override
@@ -115,22 +116,18 @@ public class Grapho implements Graph<Object, Object>{
                 cont++;
             }
 
-            @Override
             public void preVisit(Object obj) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-            @Override
             public void inVisit(Object obj) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-            @Override
             public void postVisit(Object obj) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-            @Override
             public boolean isDone() {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
