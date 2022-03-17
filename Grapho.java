@@ -1,3 +1,4 @@
+import POO_Final.Graph;
 import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
@@ -61,7 +62,6 @@ public class Grapho implements Graph<Object, Object>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void addVertex(int v, Weight w) {
         vertex[v] = new VertexO(v,Integer.parseInt(w.getWeight()));
     }
@@ -83,14 +83,12 @@ public class Grapho implements Graph<Object, Object>{
         matriz[v][w] = new EdgeO(vertex0, vertex1);
     }
 
-    @Override
     public void addEdge(int v, int w, Weight weight) throws IllegalArgumentException {
        Vertex vertex0 = (Vertex) getVertex(v);
         Vertex vertex1 = (Vertex) getVertex(w);
         matriz[v][w] = new EdgeO(vertex0,vertex1,Integer.parseInt(weight.getWeight()));
     }
 
-    @Override
     public void addEdge(int v, int w, Weight weight, Object data) throws IllegalArgumentException {
         Vertex vertex0 = (Vertex) getVertex(v);
         Vertex vertex1 = (Vertex) getVertex(w);
@@ -116,6 +114,26 @@ public class Grapho implements Graph<Object, Object>{
             public void Visit(Object object){
                 cont++;
             }
+
+            @Override
+            public void preVisit(Object obj) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void inVisit(Object obj) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void postVisit(Object obj) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean isDone() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
         };
         depthFirstTraversal(visitor, 0);
         return cont == numVert;
@@ -123,7 +141,6 @@ public class Grapho implements Graph<Object, Object>{
     
     
 
-    @Override
     public Enumeration getVertices() {
         return null;
         
