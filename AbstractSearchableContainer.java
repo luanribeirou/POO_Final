@@ -1,0 +1,1 @@
+public abstract AbstractSearchableContainer extends AbstractContainer implements SearchableContainer{}
