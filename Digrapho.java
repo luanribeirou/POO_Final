@@ -6,10 +6,8 @@ import java.util.Enumeration;
 import org.w3c.dom.css.Counter;
 
 public abstract class Digrapho extends Grapho implements Digraph<E, T> {
-
-  
-  
-    final class Entry {
+    
+    static final class Entry {
 
         boolean known = false;
         int distancia = Integer.MAX_VALUE;
@@ -52,7 +50,7 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
         final Counter counte = new Counter();
         for (int v = 0; v < this.numerodeVertices; v++) {
             counter.value = 0;
-            PrePostVisitor visitor = new AbstractPrePostVisitor() {
+            PrePostVisitor visitor = new PrePostVisitor() {
                 public void visit(Object object) {
                     counter.value++;
                 }
@@ -64,7 +62,6 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
         }
         return true;
     }
-/*
     public static Digraph DijkstaAlgorithm(Graph g, int s) {
         int n = g.getNumberOfVertices();
         Entry[] table = new Entry[n];
@@ -72,13 +69,13 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
             table[v] = new Entry();
         }
         table[g].distancia = 0;
-        QueueAsArray = new BinaryHeap(new Int(0), g.getVertex(s));
+        QueueAsArray = new BinaryHeap((int) 0, g.getVertex(s));
         while (!queue.isEmpty()) {
             Association assoc = (Association) queue.dequeueMin();
             Vertex v0 = (Vertex) assoc.getValor();
             int n0 = v0.getnumero();
-            if (!table[n0].knowm) {
-                table[n0].knwom = true;
+            if (!table[n0].known) {
+                table[n0].known = true;
                 Enumeration p = v0.getEmanatingEdges();
                 while (p.hasMoreElements()) {
                     Edge edge = (Edge) p.nextElement();
@@ -89,14 +86,14 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
                     if (table[n1].distancia > d) {
                         table[n1].distancia = d;
                         table[n1].predecessor = n0;
-                        queue.enqueue(new Association(new Int(d), v1));
+                        queue.enqueue(new Association((int) d, v1));
                     }
                 }
             }
         }
-        Graph result = new GraphAsLists(n);
+        Graph result = new Grapho(n);
         for (int v = 0; v < n; v++) {
-            result.addVertex(v, new int(table[v].distancia));
+            result.addVertex(v, (Weight) table[v].distancia);
         }
         int v;
         for (v = 0; v < n; v++) {
@@ -104,23 +101,23 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
                 result.addEdge(v, table[v].predecessor);
             }
         }
-        return result;
+        return (Digraph) result;
     }
 
     public static Digraph FloydsAlgorith(Graph g) {
-        int n = g.getNumberdeVertices();
+        int n = g.getNumberOfEdges();
         int[][] distancia = new int[n][n];
         int v;
         for (v = 0; v < n; v++) {
             for (int w = 0; w < n; w++) {
-                distance[v][w] = Integer.MAX_VALUE;
+                distancia[v][w] = Integer.MAX_VALUE;
             }
         }
         Enumeration p = g.getEdges();
         while (p.hasMoreElements()) {
             Edge edge = (Edge) p.nextElement();
-            Int wt = (int) edge.getWeight();
-            distancia[edge.getV0().getnumero][edge.getV1().getnumero] = wt.intValor();
+            int wt = (int) edge.getWeight();
+            distancia[edge.getV0().getNumber][edge.getV1().getNumber] = wt;
         }
         for (int i = 0; i < n; i++) {
             for (v = 0; v < n; v++) {
@@ -134,17 +131,17 @@ public abstract class Digrapho extends Grapho implements Digraph<E, T> {
                 }
             }
         }
-        Graph result = new GraphAsMatrix(n);
+        Graph result = new Grapho(n);
         for (v = 0; v < n; v++) {
             result.addVertex(v);
         }
         for (v = 0; v < n; v++) {
             for (int w = 0; w < n; w++) {
                 if (distancia[v][w] != Integer.MAX_VALUE) {
-                    result.addEdge(v, w, new distancia[v][w]);
+                    result.addEdge(v, w, (Weight) distancia[v][w]);
                 }
             }
         }
-        return result;
+        return (Digraph) result;
     }
-} */
+} 
