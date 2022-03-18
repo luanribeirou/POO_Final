@@ -5,8 +5,10 @@ import com.sun.nio.sctp.Association;
 import java.util.Enumeration;
 import org.w3c.dom.css.Counter;
 
-public abstract class Digrapho implements Digraph<E, T> {
+public abstract class Digrapho extends Grapho implements Digraph<E, T> {
 
+  
+  
     final class Entry {
 
         boolean known = false;
@@ -16,7 +18,7 @@ public abstract class Digrapho implements Digraph<E, T> {
     protected int numerodeVertices;
     protected int numerodeEdges;
     protected Vertex[] vertex;
-
+    protected int value;
     public void topologicalOrderTraversal(Visitor visitor) {
         int[] inDegree = new int[numerodeVertices];
         int v;
@@ -62,15 +64,15 @@ public abstract class Digrapho implements Digraph<E, T> {
         }
         return true;
     }
-
-    public static Digraph DijkstaAlgorithm(Digraph g, int s) {
+/*
+    public static Digraph DijkstaAlgorithm(Graph g, int s) {
         int n = g.getNumberOfVertices();
         Entry[] table = new Entry[n];
         for (int v = 0; v < n; v++) {
             table[v] = new Entry();
         }
-        table[s].distancia = 0;
-        PriorityQueue = new BinaryHeap(new Int(0), g.getVertex(s));
+        table[g].distancia = 0;
+        QueueAsArray = new BinaryHeap(new Int(0), g.getVertex(s));
         while (!queue.isEmpty()) {
             Association assoc = (Association) queue.dequeueMin();
             Vertex v0 = (Vertex) assoc.getValor();
@@ -92,7 +94,7 @@ public abstract class Digrapho implements Digraph<E, T> {
                 }
             }
         }
-        Digraph result = new DigraphAsLists(n);
+        Graph result = new GraphAsLists(n);
         for (int v = 0; v < n; v++) {
             result.addVertex(v, new int(table[v].distancia));
         }
@@ -105,8 +107,8 @@ public abstract class Digrapho implements Digraph<E, T> {
         return result;
     }
 
-    public static Digraph FloydsAlgorith(Digraph g) {
-        int n = g.getNumerodeVertices();
+    public static Digraph FloydsAlgorith(Graph g) {
+        int n = g.getNumberdeVertices();
         int[][] distancia = new int[n][n];
         int v;
         for (v = 0; v < n; v++) {
@@ -117,7 +119,7 @@ public abstract class Digrapho implements Digraph<E, T> {
         Enumeration p = g.getEdges();
         while (p.hasMoreElements()) {
             Edge edge = (Edge) p.nextElement();
-            int wt = (int) edge.getWeight();
+            Int wt = (int) edge.getWeight();
             distancia[edge.getV0().getnumero][edge.getV1().getnumero] = wt.intValor();
         }
         for (int i = 0; i < n; i++) {
@@ -132,7 +134,7 @@ public abstract class Digrapho implements Digraph<E, T> {
                 }
             }
         }
-        Digraph result = new DigraphAsMatrix(n);
+        Graph result = new GraphAsMatrix(n);
         for (v = 0; v < n; v++) {
             result.addVertex(v);
         }
@@ -145,4 +147,4 @@ public abstract class Digrapho implements Digraph<E, T> {
         }
         return result;
     }
-}
+} */
