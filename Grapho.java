@@ -16,6 +16,10 @@ public class Grapho implements Graph<Object, Object>{
         vertex = new VertexO[size];
         matriz = new EdgeO[size][size];
     }
+    
+    public final static class Counter{
+        int value = 0;
+    }
 
     @Override
     public int getNumberOfEdges() {
@@ -172,7 +176,12 @@ public class Grapho implements Graph<Object, Object>{
     }
 
     public void breadthFirstTraversal(Visitor visitor, int start) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Boolean[] enqueued = new Boolean[numVert];
+        for (int i = 0; i < numVert; i++) {
+            enqueued[i] = false;
+        }
+        LinkedList<Queue> queue = new LinkedList<>();
+        enqueued[start] = true;
     }
 
     public void breadthFirstTraversal(Visitor visitor) {
