@@ -19,9 +19,9 @@ public class Association extends AbstractObject{
     return key.compare(association.getKey());
   }
   public String toString(){
-    String result ="Association{"+key;
+    String result = "Association{" + key;
     if(value != null)
-      result +=","value;
-    return +"}";
+      result +="," + value;
+    return result + "}";
   }
 }

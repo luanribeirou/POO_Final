@@ -1,1 +1,3 @@
-public abstract AbstractSearchableContainer extends AbstractContainer implements SearchableContainer{}
+public abstract class AbstractSearchableContainer extends AbstractContainer implements SearchableContainer {
+    
+}

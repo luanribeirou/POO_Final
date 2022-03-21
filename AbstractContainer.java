@@ -1,6 +1,5 @@
 public abstract class AbstractContainer extends AbstractObject implements Container{
   protected int count;
-  public int count;
   public int getCount(){
     return count;
   }

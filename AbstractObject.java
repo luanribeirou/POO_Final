@@ -19,10 +19,10 @@ public abstract class AbstractObject implements Comparable{
     return compare(object) != 0;
   }
   public final boolean equals(Object object){
-    if(object instanceof comparable)
+    if(object instanceof Comparable)
       return isEQ((Comparable)object);
-    eles
-      return false
+    else
+      return false;
   }
   public final int compare(Comparable arg){
     if(getClass() == arg.getClass())

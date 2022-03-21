@@ -1,3 +1,5 @@
+import java.util.Enumeration;
+
 public class SetAsArray extends AbstractSet implements Set{
   protected boolean [] array;
   public SetAsArray(int n){
@@ -9,7 +11,7 @@ public class SetAsArray extends AbstractSet implements Set{
   protected void insert(int item){
     array[item] = true;
   }
-  protected boolen isMember(int item){
+  protected boolean isMember(int item){
     return array[item];
   }
   protected void withdraw(int item){
@@ -17,7 +19,7 @@ public class SetAsArray extends AbstractSet implements Set{
   }
   public Set union (Set set){
     SetAsArray arg =(SetAsArray)set;
-    if(univerSize != arg.universeSize)
+    if(universeSize != arg.universeSize)
       throw new IllegalArgumentException("mismatched sets");
     SetAsArray result = new SetAsArray(universeSize);
     for(int i = 0; i < universeSize; ++i)
@@ -29,7 +31,7 @@ public class SetAsArray extends AbstractSet implements Set{
     if(universeSize != arg.universeSize)
       throw new IllegalArgumentException("mismatched sets");
     SetAsArray result = new SetAsArray(universeSize);
-    for(int = 0; i < universeSize; ++i)
+    for(int i = 0; i < universeSize; ++i)
       result.array[i] = array[i] && arg.array[i];
     return result;
   } 
@@ -59,5 +61,30 @@ public class SetAsArray extends AbstractSet implements Set{
       if(array[item] && !arg.array[item])
         return false;
     return true;
+  }
+  @Override
+  public Comparable find(Comparable object) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  @Override
+  public void purge() {
+    // TODO Auto-generated method stub
+    
+  }
+  @Override
+  public void accept(Visitor visitor) {
+    // TODO Auto-generated method stub
+    
+  }
+  @Override
+  public Enumeration getEnumeration() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  @Override
+  protected int compareTo(Comparable arg) {
+    // TODO Auto-generated method stub
+    return 0;
   }
 }

@@ -1,5 +1,5 @@
 // < T extends <Comparable <T> >
-public interface Edge<E> extends Comparable<Edge<E>>,Weight{
+public interface Edge<E> extends Comparable,Weight{
   Vertex getV0(); 
   // retorna o vértice v0: direcionado(v0->v1); não direconado:(v0,v1)|(v1,v0)
   Vertex getV1(); 

@@ -1,15 +1,22 @@
-public class BinaryHeap extends Conteiner implements PriorityQueue{
+import java.util.Enumeration;
+
+
+public class BinaryHeap extends AbstractContainer implements PriorityQueue{
   protected Comparable [] array;
   public BinaryHeap(int lenght){
-    array = Comparable[lenght+1];
-  }
+    array = new Comparable[lenght+1];
+  } 
   public void purge(){
     while(count>0)
       array[count--] = null;
   }
   public void enqueue(Comparable object){
-    if(count == array.lenght-1)
-      throw new ContainerFullException();
+    if(count == array.length -1)
+      try {
+        throw new ContainerFullException();
+      } catch (ContainerFullException e) {
+        e.printStackTrace();
+      }
     ++count;
     int i = count;
     while(i > 1 && array [i/2].isGT(object)){
@@ -18,14 +25,19 @@ public class BinaryHeap extends Conteiner implements PriorityQueue{
     }
     array [i] = object;
   }
-  public Comparable finMin(){
+  public Comparable finMin() throws ContainerEmptyException{
     if(count == 0)
       throw new ContainerEmptyException();
     return array [1];
   }
   public Comparable dequeueMin(){
     if(count == 0)
-      throw new ContainerEmptyException();
+      try {
+        throw new ContainerEmptyException();
+      } catch (ContainerEmptyException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
   Comparable result = array[1];
   Comparable last = array[count];
     --count;
@@ -42,4 +54,24 @@ public class BinaryHeap extends Conteiner implements PriorityQueue{
   array[i] = last;
     return result;
     }
+  @Override
+  public void accept(Visitor visitor) {
+    // TODO Auto-generated method stub
+    
+  }
+  @Override
+  public Enumeration getEnumeration() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  @Override
+  public Comparable findMin() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  @Override
+  protected int compareTo(Comparable arg) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 }

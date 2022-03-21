@@ -5,7 +5,7 @@ public abstract class AbstractSet extends AbstractSearchableContainer
   protected abstract void insert (int i);
   protected abstract void withdraw (int i);
   protected abstract boolean isMember (int i);
-  public void insert (Comparable object){ insert (((int) object).intValue()); }
-  public void withdraw (Comparable object){ withdraw (((int) object).intValue()); }
-  public boolean isMember (Comparable object){ return isMember (((int) object).intValue()); }
+  public void insert (Comparable object){ insert (((Int)object).intValue()); }
+  public void withdraw (Comparable object){ withdraw (((Int) object).intValue()); }
+  public boolean isMember (Comparable object){ return isMember (((Int) object).intValue()); }
 }

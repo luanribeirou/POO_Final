@@ -1,6 +1,6 @@
 import java.util.Enumeration;
 //T extends <Comparable<T>
-public interface Vertex<T> extends Comparable<Vertex<T>>{
+public interface Vertex<T> extends Comparable{
   int getNumber();    
   // número que identifica o vértice--> n vértices --> [0 .. n-1]
   double getWeight(); 

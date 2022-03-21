@@ -1,9 +1,8 @@
-package POO_Final;
-
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class QueueAsArray extends Container implements Queue {
+public class QueueAsArray extends AbstractContainer implements Queue {
 
     protected Object array[];
     protected int head;
@@ -51,5 +50,29 @@ public class QueueAsArray extends Container implements Queue {
         }
         count--;
         return result;
+    }
+
+    @Override
+    public void purge() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public Enumeration getEnumeration() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    protected int compareTo(Comparable arg) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }

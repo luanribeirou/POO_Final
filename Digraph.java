@@ -1,6 +1,3 @@
-package POO_Final;
-
-
 public interface Digraph<E,T> extends Graph{
   public boolean isStronglyConnected();  // retorna true se o dígrafo é fortemente conexo
   void StronglyConnectedComponents(); // Componentes fortemente conectados de um grafo orientado

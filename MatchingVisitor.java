@@ -1,5 +1,3 @@
-package POO_Final;
-
 public class MatchingVisitor implements Visitor{
     private Object target;
     private Object found;

@@ -1,4 +1,4 @@
-public interface Set extends SearchableConteiner {
+public interface Set extends SearchableContainer {
   Set union (Set set);
   Set intersection (Set set);
   Set difference (Set set);
