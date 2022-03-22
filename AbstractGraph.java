@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -269,6 +270,7 @@ public abstract class AbstractGraph implements Graph<Object, Object>{
         for (int i = 0; i < numVert; i++) {
             visitado[i] = false;
         }
+        depthFirstTraversal(visitor, vertex[start], visitado);
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
@@ -281,7 +283,7 @@ public abstract class AbstractGraph implements Graph<Object, Object>{
         visitado[vert.getNumber()] = true;
         Enumeration proxe = vert.getSuccessors();
         while(proxe.hasMoreElements()){
-            Vertex prox = (Vertex) proxe.nextElement();
+            GraphVertex prox = (GraphVertex) proxe.nextElement();
             if(!visitado[prox.getNumber()]){
                 depthFirstTraversal(visitor,prox,visitado);
             }
@@ -291,14 +293,48 @@ public abstract class AbstractGraph implements Graph<Object, Object>{
 
     @Override
     public void breadthFirstTraversal(Visitor visitor, int start) {
-        // TODO Auto-generated method stub
-
+       boolean nodes[] = new boolean[numVert];
+        for (int i = 0; i < numVert; i++) {
+            nodes[i] = false;
+        }
+        LinkedList<Queue> queue = new LinkedList();
+        nodes[start] = true;
+        queue.add((Queue) vertex[start]);
+        while(!queue.isEmpty() && !visitor.isDone()){
+            Vertex v = (Vertex) queue.poll();
+            visitor.visit(v);
+            Enumeration p = v.getSuccessors();
+            while(p.hasMoreElements()){
+                Vertex prox = (Vertex) p.nextElement();
+                if(!nodes[prox.getNumber()]){
+                    nodes[prox.getNumber()] = true;
+                    queue.add((Queue) prox);
+                }
+            }
+        }    
     }
 
     @Override
     public void breadthFirstTraversal(Visitor visitor) {
-        // TODO Auto-generated method stub
-
+        boolean nodes[] = new boolean[numVert];
+        for (int i = 0; i < numVert; i++) {
+            nodes[i] = false;
+        }
+        LinkedList<Queue> queue = new LinkedList();
+        nodes[vertex[0].getNumber()] = true;
+        queue.add((Queue) vertex[0]);
+        while(!queue.isEmpty() && !visitor.isDone()){
+            Vertex v = (Vertex) queue.poll();
+            visitor.visit(v);
+            Enumeration p = v.getSuccessors();
+            while(p.hasMoreElements()){
+                Vertex prox = (Vertex) p.nextElement();
+                if(!nodes[prox.getNumber()]){
+                    nodes[prox.getNumber()] = true;
+                    queue.add((Queue) prox);
+                }
+            }
+        }
     }
 
     @Override
