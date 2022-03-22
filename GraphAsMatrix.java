@@ -16,5 +16,10 @@ public class GraphAsMatrix extends AbstractGraph {
         // TODO Auto-generated method stub
         return null;
     }
+    @Override
+    public boolean isConnected() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
 }

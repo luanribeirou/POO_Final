@@ -1,5 +1,3 @@
-package com.mycompany.graph.POO_Final;
-
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
@@ -8,12 +6,12 @@ public interface Graph <E,T>{
   int getNumberOfVertices();  // retorna o número de vértices do grafo
   boolean isDirected(); // retorna se o grafo é direcionado
   void addVertex(int v);  // insere um vértice no grafo. Se um grafo tem n vértices, eles estão numerados [0..(n-1)] {não informa peso ou dado}
-  void addVertex(int v, Weight w); // insere vértice com peso 'w' {não informa dados para o vértice}
-  void addVertex(int v, Weight weight, T data); // insere vértice com peso 'w' e dado de vértice ('data')
+  void addVertex(int v, double w); // insere vértice com peso 'w' {não informa dados para o vértice}
+  void addVertex(int v, double weight, T data); // insere vértice com peso 'w' e dado de vértice ('data')
   Vertex<T> getVertex(int v) throws NoSuchElementException; // retorna o 'v'ésimo vértice do grafo
   void addEdge(int v, int w) throws IllegalArgumentException; // insere a aresta (v,w) no grafo
-  void addEdge(int v, int w, Weight weight) throws IllegalArgumentException;  // insere a aresta (v,w) no grafo, com o peso weight
-  void addEdge(int v, int w, Weight weight, E data) throws IllegalArgumentException;  // insere a aresta (v,w) no grafo, com o peso weight, e dado 'data';
+  void addEdge(int v, int w, double weight) throws IllegalArgumentException;  // insere a aresta (v,w) no grafo, com o peso weight
+  void addEdge(int v, int w, double weight, E data) throws IllegalArgumentException;  // insere a aresta (v,w) no grafo, com o peso weight, e dado 'data';
   Edge<E> getEdge(int v, int w) throws NoSuchElementException; // retorna a aresta <v,w>
   boolean isEdge(int v, int w); // retorna true se o grafo possui a aresta<v,w>  
   boolean isConnected();  // retorna true se o grafo é conexo.
