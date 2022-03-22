@@ -29,7 +29,7 @@ public class QueueAsLinkedList extends AbstractContainer implements Queue {
             try {
                 throw new ContainerEmptyException();
             } catch (ContainerEmptyException ex) {
-                Logger.getLogger(QueueAsArray.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(QueueAsLinkedList.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         Object result = list.getFirst();
