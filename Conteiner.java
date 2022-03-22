@@ -1,6 +1,6 @@
-package POO_Final;
+package com.mycompany.graph.POO_Final;
 
-import POO_Final.MatchingVisitor;
+import com.mycompany.graph.POO_Final.MatchingVisitor;
 import java.lang.reflect.Array;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -32,7 +32,7 @@ public abstract class Conteiner implements Comparable, Container {
 
     public void accept(MatchingVisitor visitor) {
         if (visitor != null) {
-            MatchingVisitor.visit(visitor);
+            visitor.visit(visitor);
         }
         count++;
     }

@@ -1,11 +1,10 @@
-package POO_Final;
+package com.mycompany.graph.POO_Final;
 
-import POO_Final.Graph;
 import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-public class Grapho implements Graph<Object, Object>{
+public abstract class Grapho implements Graph<Object, Object>{
     
     protected Integer numVert;
     protected Integer numEdge;

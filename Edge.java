@@ -1,3 +1,5 @@
+package com.mycompany.graph.POO_Final;
+
 // < T extends <Comparable <T> >
 public interface Edge<E> extends Comparable,Weight{
   Vertex getV0(); 
