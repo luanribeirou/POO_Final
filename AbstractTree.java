@@ -32,4 +32,52 @@ public abstract class AbstractTree
 	    }
 	}
     }
+    public void accept (Visitor visitor)
+	{ depthFirstTraversal (new PreOrder (visitor)); }
+}
+public Enumeration getEnumeration ()
+	{ return new TreeEnumeration (); }
+
+    protected class TreeEnumeration
+	implements Enumeration
+    {
+	protected Stack stack;
+
+	// ...
+    }
+    protected class TreeEnumeration
+	implements Enumeration
+    {
+	public TreeEnumeration ()
+	{
+	    stack = new StackAsLinkedList ();
+	    if (!isEmpty ())
+		stack.push (AbstractTree.this);
+	}
+	// ...
+    }
+    protected class TreeEnumeration
+	implements Enumeration
+    {
+	public boolean hasMoreElements ()
+	    { return !stack.isEmpty (); }
+
+	public Object nextElement ()
+	{
+	    if (stack.isEmpty ())
+		throw new NoSuchElementException ();
+
+	    Tree top = (Tree) stack.pop ();
+	    for (int i = top.getDegree () - 1; i >= 0; --i)
+	    {
+		Tree subtree = (Tree) top.getSubtree (i);
+		if (!subtree.isEmpty ())
+		    stack.push (subtree);
+	    }
+	    return top.getKey ();
+	}
+	// ...
+    }
+    // ...
+}
 }
