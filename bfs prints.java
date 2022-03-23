@@ -47,3 +47,6 @@ public void breadthFirstTraversal(Visitor visitor, int start) {
    public String toString(LinkedList<Queue> queue){
      return "aresta:"+queue.toString()+"->";
    }
+public String toString(Vertex vertex,Edge edge){
+     return"vertice:"+vertex.getVertex()+"aresta:"+edge.getEdge();
+   }
