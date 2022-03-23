@@ -309,7 +309,7 @@ public abstract class AbstractGraph implements Graph<Object, Object>{
                 if(!nodes[prox.getNumber()]){
                     nodes[prox.getNumber()] = true;
                     queue.add((Queue) prox);
-                     System.out.println("aresta:"+queue.add());
+                     System.out.println("aresta:"+queue.toString()+"->");
                 }
             }
         }    
@@ -333,7 +333,7 @@ public abstract class AbstractGraph implements Graph<Object, Object>{
                 if(!nodes[prox.getNumber()]){
                     nodes[prox.getNumber()] = true;
                     queue.add((Queue) prox);
-                    System.out.println("aresta:"+queue.add());
+                    System.out.println("aresta:"+queue.toStrig()+"->");
                 }
             }
         }
